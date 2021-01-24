@@ -1,0 +1,129 @@
+*
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+
+    overflow-y: scroll;
+
+    letter-spacing: .1em;
+
+    color: $color-gray;
+}
+
+a
+{
+    text-decoration: none;
+
+    color: $color-light;
+}
+@mixin lg-min
+{
+    @media (min-width: $lg)
+    {
+        @content;
+    }
+}
+@mixin lg-md
+{
+    @media (max-width: $lg - .2 ) and (min-width: $md)
+    {
+        @content;
+    }
+}
+@mixin lg
+{
+    @media (max-width: $md - .2)
+    {
+        @content;
+    }
+}
+h1
+{
+    font-family: 'Roboto Slab', serif;
+    font-size: 3.75rem;
+    font-weight: 300;
+    line-height: 1.2;
+
+    text-align: center;
+    letter-spacing: .08em;
+
+    @include lg-min
+    {
+        font-size: 3.75rem;
+    };
+    @include lg-md
+    {
+        font-size: 2.5rem;
+    };
+    @include lg
+    {
+        font-size: 1.875rem;
+    };
+}
+.btn
+{
+    display: block;
+
+    transition: background-color .5s;
+    text-align: center;
+    &:hover,
+    &:focus
+    {
+        background-color: $color-accent;
+    }
+}
+
+.btn--light
+{
+    color: $color-light;
+    border: 2px solid  $color-light;
+    background-color: $color-primary;
+
+    @include lg-min
+    {
+        font-size: 1.125rem;
+
+        min-width: 250px;
+        height: 60px;
+        padding: 18px $gap;
+    }
+    @include lg-md
+    {
+        min-width: 200px;
+        height: 50px;
+        padding: 14px $gap;
+    }
+    @include md
+    {
+        min-width: 170px;
+        height: 40px;
+        padding: 9px $gap;
+    }
+}
+
+.btn--primary
+{
+    font-size: 1.125rem;
+
+    min-width: 350px;
+    height: 60px;
+    padding: 18px $gap;
+
+    border: 2px solid $color-primary;
+    background-color: rgba($color-primary, .8) ;
+
+    @include sm-min
+    {
+        min-width: 350px;
+    }
+    @include sm
+    {
+        width: 100%;
+        margin: 0 $gap 0 $gap;
+    }
+}
